@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/FloatingIntegers/twitterish#readme",
   "devDependencies": {
+    "eslint": "^3.0.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.10.2",
+    "eslint-plugin-jsx-a11y": "^1.5.5",
+    "eslint-plugin-react": "^5.2.2",
     "shot": "^3.1.0",
     "tape": "^4.6.0"
   },
