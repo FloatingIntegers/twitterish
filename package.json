@@ -1,0 +1,26 @@
+{
+  "name": "twitterish",
+  "version": "1.0.0",
+  "description": "Dashboard influenced by Twitter",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FloatingIntegers/twitterish.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FloatingIntegers/twitterish/issues"
+  },
+  "homepage": "https://github.com/FloatingIntegers/twitterish#readme",
+  "devDependencies": {
+    "shot": "^3.1.0",
+    "tape": "^4.6.0"
+  },
+  "dependencies": {
+    "redis": "^2.6.2"
+  }
+}
