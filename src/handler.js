@@ -28,6 +28,13 @@ function handler(req, res) {
         res.end(data);
       }
     });
+  } else if (pathName === '/set-tweet') {
+    console.log('setting tweet!');
+    let requestData = '';
+    req.on('data', chunk => requestData += chunk);
+    req.on('end', () => {
+      console.log(JSON.parse(requestData));
+    })
   } else {
     const ext = getFileExtension(pathName);
     fs.readFile(`${__dirname}/../public/${pathName}`, (err, data) => {
