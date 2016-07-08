@@ -20,7 +20,7 @@ const post = (url, objData, cb = () => {}) => {
 
   xhr.open('POST', url);
   xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-  xhr.send(JSON.stringify(JSON.stringify(objData)));
+  xhr.send(JSON.stringify(objData));
 };
 
 const tweets = {

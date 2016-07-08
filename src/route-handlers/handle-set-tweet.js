@@ -1,9 +1,13 @@
 const { getPostData } = require('../request-helpers');
+const redis = require('redis');
+const client = redis.createClient();
+
 
 const handleSetTweet = (request, response) => {
   getPostData(request, (data) => {
-    // eslint-disable-next-line no-console
-    console.log(JSON.parse(data));
+    const dateId = Date.now().toString();
+    const tweetObj = Object.assign({ dateId }, JSON.parse(data));
+    client.lpush(['tweets', JSON.stringify(tweetObj)]);
     response.end();
   });
 };
