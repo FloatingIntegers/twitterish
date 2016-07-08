@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "start": "nodemon src/server.js",
-    "check-coverage": "istanbul check-coverage --statements 20 --branches 20 --functions 20 --lines 20",
+    "check-coverage": "istanbul check-coverage --statements 10 --branches 10 --functions 10 --lines 10",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "test": "istanbul cover tape backendTests/**/*.test.js"
   },
