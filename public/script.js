@@ -36,7 +36,7 @@ const tweets = {
 
 const printTweetsToPage = (data) => {
   data.forEach((tweetObj) => {
-    const tweetWrapper = document.createElement('li');
+    const tweetWrapper = document.createElement('div');
     const tweetText = document.createTextNode(tweetObj.tweet);
     tweetWrapper.appendChild(tweetText);
     dashboard.appendChild(tweetWrapper);
