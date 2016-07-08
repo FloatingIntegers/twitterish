@@ -2,8 +2,7 @@ const fs = require('fs');
 const url = require('url');
 const {
   getPostData,
-  getContentTypeFromExtension,
-  getFileExtension,
+  getContentType,
 } = require('./request-helpers');
 
 function handler(req, res) {
@@ -25,13 +24,12 @@ function handler(req, res) {
       console.log(JSON.parse(data));
     });
   } else {
-    const ext = getFileExtension(pathName);
     fs.readFile(`${__dirname}/../public/${pathName}`, (err, data) => {
       if (err) {
         res.writeHead(404, { 'Content-type': 'text/html' });
         res.end('<h2>404 File not found</h2>');
       } else {
-        res.writeHead(200, { 'Content-type': getContentTypeFromExtension(ext) });
+        res.writeHead(200, { 'Content-type': getContentType(pathName) });
         res.end(data);
       }
     });
