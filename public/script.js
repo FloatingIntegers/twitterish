@@ -1,4 +1,5 @@
-
+const tweetInput = document.getElementById('tweetInput');
+const dashboard = document.getElementById('dashboard');
 
 const fetch = (url, cb = () => {}) => {
   const xhr = new XMLHttpRequest();
@@ -33,10 +34,20 @@ const tweets = {
   },
 };
 
-const tweetText = document.getElementById('tweetText');
+const printTweetsToPage = (data) => {
+  data.forEach((tweetObj) => {
+    const tweetWrapper = document.createElement('li');
+    const tweetText = document.createTextNode(tweetObj.tweet);
+    tweetWrapper.appendChild(tweetText);
+    dashboard.appendChild(tweetWrapper);
+  });
+};
 
 document.getElementById('tweetButton').addEventListener('click', () => {
-  tweets.post(tweetText.value);
+  tweets.post(tweetInput.value);
 });
 
-tweets.get((data) => console.log(JSON.parse(data)));
+tweets.get((data) => {
+  console.log(JSON.parse(data));
+  printTweetsToPage(JSON.parse(data));
+});
