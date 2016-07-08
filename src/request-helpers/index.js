@@ -10,6 +10,9 @@ const getFileExtension = (pathName) => {
   return regExMatch !== null ? regExMatch[1] : '';
 };
 
+const getContentType = (pathName) =>
+  getContentTypeFromExtension(getFileExtension(pathName));
+
 const getPostData = (request, cb) => {
   let requestData = '';
   request.on('data', chunk => { requestData += chunk; });
@@ -21,5 +24,6 @@ const getPostData = (request, cb) => {
 module.exports = {
   getContentTypeFromExtension,
   getFileExtension,
+  getContentType,
   getPostData,
 };
