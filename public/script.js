@@ -28,26 +28,13 @@ const tweets = {
     fetch('/get-tweets', cb);
   },
 
-  post(tweet) {
-    post('/set-tweet', { tweet }, () => {
-      console.log('tweet set');
-    });
+  post(tweet, cb) {
+    post('/set-tweet', { tweet }, cb);
   },
 };
 
 const tweetText = document.getElementById('tweetText');
 
 document.getElementById('tweetButton').addEventListener('click', () => {
-  console.log('button clicked', tweetText.value);
   tweets.post(tweetText.value);
 });
-
-
-// const tweets = {
-//   get() {
-//     const xhr = new XMLHttpRequest();
-//     xhr.addEventListener('load', () => {
-//       return xhr.responseText;
-//     })
-//   }
-// }

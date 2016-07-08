@@ -1,22 +1,13 @@
 const fs = require('fs');
 const url = require('url');
-
-const VALID_EXTS_TO_CONTENT_TYPE = {
-  ico: 'image/x-icon',
-};
-
-function getContentTypeFromExtension(ext) {
-  return VALID_EXTS_TO_CONTENT_TYPE[ext] || `text/${ext}`;
-}
-
-function getFileExtension(pathName) {
-  const regExMatch = /\.(\w+)$/.exec(pathName);
-  return regExMatch !== null ? regExMatch[1] : '';
-}
+const {
+  getPostData,
+  getContentTypeFromExtension,
+  getFileExtension,
+} = require('./request-helpers');
 
 function handler(req, res) {
-  const urlData = url.parse(req.url);
-  const pathName = urlData.pathname;
+  const pathName = url.parse(req.url).pathname;
 
   if (pathName === '/') {
     fs.readFile(`${__dirname}/../public/index.html`, (err, data) => {
@@ -29,12 +20,10 @@ function handler(req, res) {
       }
     });
   } else if (pathName === '/set-tweet') {
-    console.log('setting tweet!');
-    let requestData = '';
-    req.on('data', chunk => requestData += chunk);
-    req.on('end', () => {
-      console.log(JSON.parse(requestData));
-    })
+    getPostData(req, (data) => {
+      // eslint-disable-next-line no-console
+      console.log(JSON.parse(data));
+    });
   } else {
     const ext = getFileExtension(pathName);
     fs.readFile(`${__dirname}/../public/${pathName}`, (err, data) => {

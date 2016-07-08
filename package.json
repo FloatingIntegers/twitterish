@@ -4,10 +4,12 @@
   "description": "Dashboard influenced by Twitter",
   "main": "script.js",
   "scripts": {
-    "start": "nodemon src/server.js",
+    "test": "istanbul cover tape backend-tests/**/*.test.js",
     "check-coverage": "istanbul check-coverage --statements 10 --branches 10 --functions 10 --lines 10",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "test": "istanbul cover tape backendTests/**/*.test.js"
+    "just-test": "tape ./backend-tests/**/*.test.js | faucet",
+    "watch:test": "nodemon -q -x 'npm run just-test'",
+    "watch:start": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,11 @@
     "eslint-plugin-import": "^1.10.2",
     "eslint-plugin-jsx-a11y": "^1.5.5",
     "eslint-plugin-react": "^5.2.2",
+    "faucet": "0.0.1",
+    "istanbul": "0.4.4",
+    "nodemon": "1.9.2",
     "shot": "^3.1.0",
+    "sinon": "1.17.4",
     "tape": "^4.6.0"
   },
   "dependencies": {
