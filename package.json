@@ -5,7 +5,9 @@
   "main": "script.js",
   "scripts": {
     "test": "istanbul cover tape backend-tests/**/*.test.js",
-    "just-test": "tape backend-tests/**/*.test.js | faucet",
+    "check-coverage": "istanbul check-coverage --statements 10 --branches 10 --functions 10 --lines 10",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "just-test": "tape ./backend-tests/**/*.test.js | faucet",
     "watch:test": "nodemon -q -x 'npm run just-test'",
     "watch:start": "nodemon src/server.js"
   },
@@ -33,6 +35,8 @@
     "tape": "^4.6.0"
   },
   "dependencies": {
+    "codecov.io": "^0.1.6",
+    "istanbul": "^0.4.4",
     "redis": "^2.6.2"
   }
 }
