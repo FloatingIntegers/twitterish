@@ -1,5 +1,15 @@
+/* global io */
 const tweetInput = document.getElementById('tweetInput');
 const dashboard = document.getElementById('dashboard');
+
+const socket = io();
+
+
+const clearDashboard = () => {
+  Array.from(dashboard.childNodes).forEach(node => {
+    dashboard.removeChild(node);
+  });
+};
 
 const fetch = (url, cb = () => {}) => {
   const xhr = new XMLHttpRequest();
@@ -35,6 +45,7 @@ const tweets = {
 };
 
 const printTweetsToPage = (data) => {
+  clearDashboard();
   data.forEach((tweetObj) => {
     const tweetWrapper = document.createElement('div');
     const tweetText = document.createTextNode(tweetObj.tweet);
@@ -44,10 +55,13 @@ const printTweetsToPage = (data) => {
 };
 
 document.getElementById('tweetButton').addEventListener('click', () => {
-  tweets.post(tweetInput.value);
+  // tweets.post(tweetInput.value);
+  socket.emit('tweet', { tweet: tweetInput.value });
 });
 
-tweets.get((data) => {
-  console.log(JSON.parse(data));
-  printTweetsToPage(JSON.parse(data));
-});
+socket.on('tweet-update', printTweetsToPage);
+
+// tweets.get((data) => {
+//   console.log(JSON.parse(data));
+//   printTweetsToPage(JSON.parse(data));
+// });
