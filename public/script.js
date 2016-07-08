@@ -38,3 +38,5 @@ const tweetText = document.getElementById('tweetText');
 document.getElementById('tweetButton').addEventListener('click', () => {
   tweets.post(tweetText.value);
 });
+
+tweets.get((data) => console.log(JSON.parse(data)));
