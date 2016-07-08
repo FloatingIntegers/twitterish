@@ -1,6 +1,6 @@
 
 
-const fetch = (url, cb) => {
+const fetch = (url, cb = () => {}) => {
   const xhr = new XMLHttpRequest();
 
   xhr.addEventListener('load', () => {
@@ -11,7 +11,7 @@ const fetch = (url, cb) => {
   xhr.send();
 };
 
-const post = (url, objData, cb) => {
+const post = (url, objData, cb = () => {}) => {
   const xhr = new XMLHttpRequest();
 
   xhr.addEventListener('load', () => {
