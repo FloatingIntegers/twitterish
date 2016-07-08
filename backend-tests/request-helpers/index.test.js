@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 const tape = require('tape');
 const { EventEmitter } = require('events');
-// const sinon = require('sinon');
+
 const {
   getContentTypeFromExtension,
   getFileExtension,
