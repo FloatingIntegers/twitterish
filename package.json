@@ -4,7 +4,10 @@
   "description": "Dashboard influenced by Twitter",
   "main": "script.js",
   "scripts": {
-    "test": "npm run backendTests/handler.test.js"
+    "start": "nodemon src/server.js",
+    "check-coverage": "istanbul check-coverage --statements 20 --branches 20 --functions 20 --lines 20",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "test": "istanbul cover tape backendTests/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,7 @@
   },
   "dependencies": {
     "codecov.io": "^0.1.6",
+    "istanbul": "^0.4.4",
     "redis": "^2.6.2"
   }
 }
