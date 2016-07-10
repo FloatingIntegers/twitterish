@@ -7,7 +7,7 @@ const {
   getFileExtension,
   getContentType,
   getPostData,
-} = require('../../src/request-helpers');
+} = require('../../../src/request-helpers');
 
 tape('getContentTypeFromExtension', t => {
   t.plan(3);
