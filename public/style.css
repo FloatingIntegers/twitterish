@@ -1,3 +1,35 @@
-#form-wrapper{
-  /*to be continued...*/
+*{
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+}
+#content-wrapper{
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+#tweetInput{
+  width: 600px;
+  height: 120px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 5vh;
+  outline: none;
+}
+#tweetButton{
+  padding: 0,5%;
+  border-radius: 5px;
+  outline: none;
+  font-size: 2vh;
+  background-color: inherit;
+  border-style: 1px solid black;
+}
+
+#dashboard > *{
+  width: 70%;
+  margin: 1%;
+  padding: 2%;
+  border: 1px solid black;
+  border-radius: 5px;
 }
