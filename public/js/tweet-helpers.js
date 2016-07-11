@@ -14,7 +14,7 @@ const createTweetHelpers = (XMLHttpRequest) => {
 
   const printTweetsToPage = (parentNode, tweets) => {
     removeChildren(parentNode);
-    addChildren(tweets.map(tweet => tweet.un + ' said ' + tweet.tweet), parentNode);
+    addChildren(tweets.map(tweet => tweet.username + ' said: ' + tweet.tweet), parentNode);
   };
 
   return {

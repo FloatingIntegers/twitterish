@@ -1,14 +1,18 @@
 const { getPostData } = require('../request-helpers');
-const redis = require('redis');
-
+// const redis = require('redis');
+const redisTwitter = require('../redis-twitter');
 
 const handleSetTweet = (request, response) => {
   getPostData(request, (data) => {
-    const client = redis.createClient();
+    redisTwitter.connect();
     const dateId = Date.now().toString();
-    const tweetObj = Object.assign({ dateId }, JSON.parse(data));
-    client.lpush(['tweets', JSON.stringify(tweetObj)]);
-    response.end();
+    //eslint-disable-next-line
+    const un = ['Cat', 'Dog', 'Panda', 'Chicken', 'Monkey', 'Giraffe', 'Squirrel', 'Pig', 'Mouse', 'Koala'];
+    const randomIndex = (arr) => arr[Math.floor(Math.random() * arr.length)];
+    const tweetObj = Object.assign({ dateId, username: randomIndex(un) }, JSON.parse(data));
+    redisTwitter.addTweet(tweetObj, () => {
+      response.end();
+    });
   });
 };
 

@@ -1,6 +1,14 @@
 [![Build Status](https://travis-ci.org/FloatingIntegers/twitterish.svg?branch=master)](https://travis-ci.org/FloatingIntegers/twitterish)[![codecov](https://codecov.io/gh/FloatingIntegers/twitterish/branch/master/graph/badge.svg)](https://codecov.io/gh/FloatingIntegers/twitterish)[![Code Climate](https://codeclimate.com/github/FloatingIntegers/twitterish/badges/gpa.svg)](https://codeclimate.com/github/FloatingIntegers/twitterish)
 
 # Twitterish
+Quickstart guide!
+
+```
+git clone https://github.com/FloatingIntegers/twitterish.git
+cd to the directory
+npm install
+npm run watch:start
+```
 
 ## What
 
