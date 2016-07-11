@@ -11,7 +11,8 @@
     "watch:server-test": "nodemon -q -x 'npm run just-server-test'",
     "just-frontend-test": "karma start",
     "watch:frontend-test": "nodemon -q -x 'npm run just-frontend-test'",
-    "watch:start": "nodemon src/server.js"
+    "watch:start": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
