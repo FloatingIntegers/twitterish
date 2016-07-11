@@ -1,15 +1,25 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 *{
   font-family: 'Quicksand', sans-serif;
   text-align: center;
 }
 #content-wrapper{
-  width: 100vw;
+  width: 800px;
   height: 100vh;
   margin: 0 auto;
 }
 
 #tweetInput{
-  width: 600px;
+  width: 100%;
   height: 120px;
   border: 1px solid black;
   border-radius: 5px;
@@ -27,7 +37,6 @@
 }
 
 #dashboard > *{
-  width: 70%;
   margin: 1%;
   padding: 2%;
   border: 1px solid black;
