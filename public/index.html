@@ -3,20 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>twitterish</title>
+    <link rel="stylesheet" href="/style.css" media="screen" title="no title" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
   </head>
   <body>
-
-    <h1>twitterish</h1>
-    <div id="form-wrapper">
-      <input id="tweetInput" type="text">
-      <button id="tweetButton" type="button">Tweet it!</button>
+    <div id="content-wrapper">
+      <h1>twitterish</h1>
+      <div id="form-wrapper">
+        <textarea id="tweetInput" rows="4" cols="40"></textarea>
+      </div>
+        <button id="tweetButton" type="button">Tweet it!</button>
+      <div id="dashboard"></div>
     </div>
-    <div id="dashboard"></div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/dom-helpers.js"></script>
     <script src="/js/xhr-helpers.js"></script>
     <script src="/js/tweet-helpers.js"></script>
     <script src="/js/main.js"></script>
+
   </body>
 </html>
