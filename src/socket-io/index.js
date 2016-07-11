@@ -30,7 +30,7 @@ const addSocketIO = (app) => {
 
       redisTwitter.addTweetsPromise(tweetObj)                     // Promise(undefined)
         .then(redisTwitter.getTweetsPromise.bind(redisTwitter))   // Promise([Tweet])
-        .then(tweets => socket.emit('tweet-update', tweets))      // Promise(undefined)
+        .then(tweets => io.emit('tweet-update', tweets))          // Promise(undefined)
         .catch(logError);
 
       // redisTwitter.addTweet(tweetObj, (err) => {

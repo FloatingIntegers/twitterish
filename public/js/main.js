@@ -1,4 +1,4 @@
-/* global createTweetHelpers, printTweetsToPage, createDomHelpers */
+/* global io, createDomHelpers, createTweetHelpers */
 ((() => {
   const tweetInput = document.getElementById('tweetInput');
   const dashboard = document.getElementById('dashboard');
@@ -6,13 +6,13 @@
   const tweetHelpers = createTweetHelpers(XMLHttpRequest);
   const printTweets = tweetHelpers.printTweetsToPage.bind(tweetHelpers, dashboard);
 
-  const updateTweets = () => tweetHelpers.get(printTweets);
+  const socket = io();
 
-  // Get all tweets on load
-  updateTweets();
-
-  // Post tweet on click event and update tweets after load
+  // Emit tweet event with current tweet input
   document.getElementById('tweetButton').addEventListener('click', () => {
-    tweetHelpers.post(tweetInput.value, updateTweets);
+    socket.emit('tweet', { tweet: tweetInput.value });
   });
+
+  // Update tweet display on tweet-update event
+  socket.on('tweet-update', printTweets);
 })());

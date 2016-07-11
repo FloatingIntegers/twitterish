@@ -5,11 +5,12 @@
   "main": "script.js",
   "scripts": {
     "test": "istanbul cover tape 'tests/src/**/*.test.js'",
-    "frontend-test": "karma start",
     "check-coverage": "istanbul check-coverage --statements 10 --branches 10 --functions 10 --lines 10",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "just-test": "tape 'tests/src/**/*.test.js' | faucet",
-    "watch:test": "nodemon -q -x 'npm run just-test'",
+    "just-server-test": "tape 'tests/src/**/*.test.js' | faucet",
+    "watch:server-test": "nodemon -q -x 'npm run just-server-test'",
+    "just-frontend-test": "karma start",
+    "watch:frontend-test": "nodemon -q -x 'npm run just-frontend-test'",
     "watch:start": "nodemon src/server.js"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "karma-babel-preprocessor": "6.0.1",
     "karma-chrome-launcher": "1.0.1",
     "karma-jasmine": "1.0.2",
+    "karma-jasmine-ajax": "0.1.13",
     "karma-phantomjs-launcher": "1.0.1",
     "nodemon": "1.9.2",
     "shot": "^3.1.0",
