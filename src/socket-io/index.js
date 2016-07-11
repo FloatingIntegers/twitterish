@@ -23,7 +23,7 @@ const addSocketIO = (app) => {
       // eslint-disable-next-line
       const un = ['Cat', 'Dog', 'Panda', 'Chicken', 'Monkey', 'Giraffe', 'Squirrel', 'Pig', 'Mouse', 'Koala'];
       const randomIndex = (arr) => arr[Math.floor(Math.random() * arr.length)];
-      const tweetObj = Object.assign({ dateId: Date.now(), un: randomIndex(un) }, tweet);
+      const tweetObj = Object.assign({ dateId: Date.now(), username: randomIndex(un) }, tweet);
       redisTwitter.addTweetsPromise(tweetObj)                     // Promise(undefined)
         .then(redisTwitter.getTweetsPromise.bind(redisTwitter))   // Promise([Tweet])
         .then(tweets => { console.log(tweets.slice(0, 5)); return tweets; })

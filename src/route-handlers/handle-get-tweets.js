@@ -1,10 +1,9 @@
-const redis = require('redis');
+const redisTwitter = require('../redis-twitter');
 
 const handleGetTweets = (request, response) => {
-  const client = redis.createClient();
-  client.lrange('tweets', 0, -1, (err, reply) => {
-    const data = reply.map(JSON.parse);
-    response.end(JSON.stringify(data));
+  redisTwitter.connect();
+  redisTwitter.getTweets((err, tweets) => {
+    response.end(JSON.stringify(tweets));
   });
 };
 
