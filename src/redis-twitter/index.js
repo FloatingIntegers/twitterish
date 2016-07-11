@@ -4,7 +4,7 @@ const promisify = require('../helpers/promisify');
 let client;
 
 const connect = () => {
-  if (!client) client = redis.createClient();
+  if (!client) client = redis.createClient(process.env.REDIS_URL);
 };
 
 const getTweets = (cb) => {
