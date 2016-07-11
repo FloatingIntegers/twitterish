@@ -4,9 +4,9 @@
   const dashboard = document.getElementById('dashboard');
 
   const tweetHelpers = createTweetHelpers(XMLHttpRequest);
-  const printTweets = tweetHelpers.printTweetsToPage.bind(tweetHelpers, dashboard);
 
-  const updateTweets = () => tweetHelpers.get(printTweets);
+  const updateTweets =
+    () => tweetHelpers.get((tweets) => tweetHelpers.printTweetsToPage(dashboard, tweets));
 
   // Get all tweets on load
   updateTweets();
