@@ -1,6 +1,6 @@
 const tape = require('tape');
 const shot = require('shot');
-const handler = require('../src/handler.js');
+const handler = require('../../src/handler.js');
 
 tape('test that test environment is working', t => {
   shot.inject(handler, { method: 'get', url: '/' }, (res) => {
